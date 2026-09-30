@@ -1,0 +1,14 @@
+# Raw downloads (regenerate with ingest.py / ingest_shifts.py)
+data/raw/
+data/raw_shifts/
+
+# Large intermediates (regenerate with parse.py / model.py / onice.py)
+data/shots_*.csv
+data/clock_*.csv
+data/out/onice_events.csv
+
+# Logs and Python cruft
+ingest.log
+__pycache__/
+*.pyc
+.DS_Store
