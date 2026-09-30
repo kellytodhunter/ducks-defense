@@ -75,7 +75,7 @@ for i, (s, m, lo, hi) in enumerate(srows):
 ax.axvline(0, color=INK, lw=1); ax.set_yticks(range(5)); ax.set_yticklabels([names[r[0]] for r in srows], color=INK, fontsize=9)
 ax.invert_yaxis(); ax.set_xlim(-.12, .32); ax.grid(axis="x", color=GRID, zorder=0)
 ax.set_xlabel("Middle-of-ice xG against per 60 vs league (95% CI)")
-title(ax, "The excess comes from structured play, not scrambles", "Slot + crease xG against at 5v5 by how the chance started. Intervals are wide: read direction, not decimals")
+title(ax, "Most of the excess is in settled play", "Slot + crease xG against at 5v5 by how the chance started. Intervals are wide: read direction, not decimals")
 fig.savefig(OUT / "3_source.png", dpi=200, bbox_inches="tight"); plt.close()
 
 # ---- 4. consistency across splits --------------------------------------------------

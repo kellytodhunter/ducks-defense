@@ -56,26 +56,27 @@ story = [
         "<b>5th best</b> at limiting shots from the point.",
         "<b>Roughly three-quarters of the excess is in the slot.</b> The Ducks allow about +0.18 xGA/60 more than an average team "
         "(about 11 goals over a season). Slot chances account for +0.14 of that (95% CI +0.02 to +0.26). "
-        "The crease and the perimeter are league-average.",
-        "<b>It looks systemic, not personnel.</b> The pattern holds at home and on the road and in both halves of the season. "
+        "The crease and the perimeter are league-average. Counting slot and crease together the excess is +0.13, but its interval (-0.01 to +0.28) "
+        "just includes zero, so the evidence is consistent in direction rather than conclusive.",
+        "<b>It looks more systemic than personnel, though that test is low-powered.</b> The pattern holds at home and on the road and in both halves of the season. "
         "On-ice/off-ice results for 20 skaters are statistically indistinguishable from noise "
         "(heterogeneity test p = 0.66; defensemen and forwards look alike).",
     ]),
     Spacer(1, 4),
-    fig("1_rink_map.png", 3.3 * inch,
+    fig("1_rink_map.png", 2.9 * inch,
         "Figure 1. Ducks minus league-average unblocked attempts against per 60 (5v5), smoothed. The extra chances are concentrated "
         "at the net-front and in the high slot, not on the perimeter."),
-    fig("2_zone_excess.png", 4.7 * inch,
-        "Figure 2. Excess xG against per 60 by shot location, with 95% bootstrap intervals (games resampled). "
-        "Slot is the only region with an interval that excludes zero."),
+    fig("2_zone_excess.png", 4.3 * inch,
+        "Figure 2. Excess xG against per 60 by location (slot = inside the faceoff dots, excluding the crease), 95% intervals over games. "
+        "Only the slot interval excludes zero; zone boundaries were my choice and not corrected for multiple comparisons."),
 
     Paragraph("Where the extra slot chances come from", H2),
     Paragraph(
-        "Classifying each shot by how the chance began (from the sequence of events before it) shows the Ducks are league-average or better on "
-        "rebounds and forecheck-turnover chances. The excess sits in <b>settled offensive-zone play</b> (roughly 70% of it), with smaller "
-        "contributions from rushes and shots soon after faceoffs. The intervals here are wide, so read the direction, not the decimals.", P),
+        "Classifying each shot by how the chance began (from the sequence of events before it), rebound and forecheck-turnover chances against the Ducks "
+        "are not distinguishable from league average. Most of the point estimate sits in <b>settled offensive-zone play</b> (roughly 70% of it), with smaller "
+        "contributions from rushes and shots soon after faceoffs. Every interval here includes or touches zero, so read the direction, not the decimals.", P),
     fig("3_source.png", 5.2 * inch,
-        "Figure 3. Slot + crease xG against per 60 vs league, by chance source. Definitions are heuristics from the event feed, which has no puck tracking."),
+        "Figure 3. Slot + crease xG against per 60 vs league, by chance source (note: this combined region differs from Figure 2's slot-only). Definitions are heuristics from the event feed, which has no puck tracking."),
 
     Paragraph("Robustness", H2),
     fig("4_consistency.png", 3.8 * inch, "Figure 4. The slot + crease excess has the same sign in every split I tried."),
@@ -110,8 +111,9 @@ story = [
         "<b>Chance-source labels are heuristics.</b> The feed has no zone entries or passes. Rush = last logged event in the neutral/defensive zone "
         "within 10 s. At 5 s the rush share is too small to measure; at 5, 10 and 15 s the Ducks' rush excess is never distinguishable from zero.",
         "<b>On-ice attribution</b> reconstructs exactly five Ducks skaters on the ice for 99.7% of 5v5 seconds (worst game 97.8%).",
-        "<b>Limits:</b> one season; intervals treat games as independent; on/off numbers are confounded by usage; no puck or player tracking, "
-        "so I can show <i>where and when</i> chances arise but not <i>why</i>.",
+        "<b>Inference:</b> intervals resample only the Ducks' games (treated as independent) and hold the league average fixed, so they understate uncertainty. On/off is confounded by usage. I examined four zones, five chance sources, "
+        "several splits and 20 players without correcting for multiple comparisons. 'Systemic, not personnel' rests on absence of evidence from low-powered on/off data.",
+        "<b>Limits:</b> one season; no puck or player tracking, so I can show <i>where and when</i> chances arise but not <i>why</i>.",
     ], SM),
 ]
 
